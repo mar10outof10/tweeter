@@ -3,6 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+// converts unix time value to amount of time passed since that time
 const parseDate = date => {
   const millisecondsAgo = Date.now() - date;
   // seconds, minutes, hours, days
@@ -32,14 +33,28 @@ const parseDate = date => {
     }
   }
 }
+// function avoids XSS by escaping string of problematic characters
+const escapeString = string => {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#x27;',
+    "/": '&#x2F;',
+  };
+  const reg = /[&<>"'`\/]/ig;
+  return string.replace(reg, (match)=>(map[match]));
+}
 
 const createTweetElement = tweetObject => {
   const avatar = tweetObject.user.avatars;
   const name = tweetObject.user.name;
   const username = tweetObject.user.handle;
-  const content = tweetObject.content.text;
+  const content = escapeString(tweetObject.content.text);
   const dateCreated = parseDate(tweetObject.created_at);
 
+  console.log(content);
   const article = `
     <article class="tweet">
       <header class="tweet-header">
@@ -101,7 +116,7 @@ $("#tweet-form").on ('submit', (function (event) {
     $('#tweet-form').trigger("reset"); // resets form to empty
     $('.counter').html('140');
   });
-  
+
 }));
 
 loadTweets();
