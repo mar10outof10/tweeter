@@ -6,8 +6,6 @@ $('#profilepic').on('click', () => alert('heya'));
 
 $('#tweet-text').on('input', function() {
   const counterLength = 140 - $(this).val().length;
-  console.log(counterLength);
-
   const counter = $(this).siblings('.button-count').children('.counter');
   if (counterLength >= 0) {
     counter.css('color', '#545149');

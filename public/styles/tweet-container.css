@@ -1,12 +1,11 @@
-.tweet-container {
+#tweet-container {
   display: flex;
   flex-direction: column;
   width: 95%;
-  border-style: solid;
   margin-top: 2em;
 }
 
-.tweet-container:hover {
+.tweet:hover {
   box-shadow: 0.25em 0.25em;
   font-weight: bold;
 }
@@ -15,6 +14,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-style: solid;
+  margin: 1em 0;
 }
 
 .tweet-header {
@@ -31,6 +32,7 @@
 .avatar {
   max-width: 2em;
   max-height: 2em;
+  padding-right: 0.5em;
 }
 
 .username {
@@ -38,7 +40,7 @@
   margin-left: auto;
 }
 
-.tweet-container:hover .username {
+.tweet:hover .username {
   visibility: visible;
   font-weight: normal;
 }
