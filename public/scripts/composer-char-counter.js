@@ -1,6 +1,6 @@
-$(document).ready(() => {
-  console.log('eyayy');
-})
+// $(document).ready(() => {
+//   console.log('ready');
+// })
 
 $('#profilepic').on('click', () => alert('heya'));
 
