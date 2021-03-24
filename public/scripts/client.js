@@ -34,17 +34,10 @@ const parseDate = date => {
   }
 }
 // function avoids XSS by escaping string of problematic characters
-const escapeString = string => {
-  const map = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#x27;',
-    "/": '&#x2F;',
-  };
-  const reg = /[&<>"'`\/]/ig;
-  return string.replace(reg, (match)=>(map[match]));
+const escapeString = str => {
+  const div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
 }
 
 const createTweetElement = tweetObject => {
@@ -99,12 +92,18 @@ $("#tweet-form").on ('submit', (function (event) {
   const inputLength = $('#tweet-text').val().length;
 
   if (inputLength <= 0) {
-    alert('Tweet may not be empty');
+    $('#tweet-error').slideDown();
+    $('#tweet-error').css('display', 'block');
+    $('#tweet-error').text('⚠️ Error: tweet may not be empty.');
     return;
   } else if (inputLength > 140) {
-    alert('Tweet may not be more than 140 characters');
+    $('#tweet-error').slideDown();
+    $('#tweet-error').css('display', 'block');
+    $('#tweet-error').text('⚠️ Error: tweet may not be greater than 140 characters.');
     return;
   }
+
+  $('#tweet-error').slideUp();
 
   $.ajax({ 
     url: '/tweets',
