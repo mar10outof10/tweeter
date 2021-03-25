@@ -11,8 +11,26 @@ nav {
   top: 0;
  }
 
- .tweeter {
+ .tweeter-logo {
    font-family: Bungee;
    font-size: 1.5em;
    align-self: flex-end;
  }
+
+ .write-tweet {
+   align-self: flex-start;
+   text-align: center;
+ }
+
+ .write-tweet:hover {
+   font-weight: bolder;
+ }
+
+ .write-tweet:hover span {
+   display: inline-block;
+   animation: spin 3s infinite linear;
+ }
+
+@keyframes spin {
+  to {transform:rotate(360deg);}
+}

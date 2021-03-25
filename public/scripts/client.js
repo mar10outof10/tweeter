@@ -47,7 +47,6 @@ const createTweetElement = tweetObject => {
   const content = escapeString(tweetObject.content.text);
   const dateCreated = parseDate(tweetObject.created_at);
 
-  console.log(content);
   const article = `
     <article class="tweet">
       <header class="tweet-header">
@@ -93,12 +92,10 @@ $("#tweet-form").on ('submit', (function (event) {
 
   if (inputLength <= 0) {
     $('#tweet-error').slideDown();
-    $('#tweet-error').css('display', 'block');
     $('#tweet-error').text('⚠️ Error: tweet may not be empty.');
     return;
   } else if (inputLength > 140) {
     $('#tweet-error').slideDown();
-    $('#tweet-error').css('display', 'block');
     $('#tweet-error').text('⚠️ Error: tweet may not be greater than 140 characters.');
     return;
   }
@@ -112,10 +109,38 @@ $("#tweet-form").on ('submit', (function (event) {
   })
   .then((req) => { // POST to /tweets returns a tweet element as req
     $('#tweet-container').prepend(createTweetElement(req));
+    $('.new-tweet').slideUp();
     $('#tweet-form').trigger("reset"); // resets form to empty
     $('.counter').html('140');
   });
 
 }));
+
+$('.write-tweet').on('click', () => {
+  $('.new-tweet').slideDown();
+});
+
+$('#top-page').on('mouseenter', () => {
+  $('#move-up').html('&#129304&#11014;&#11014;');
+})
+
+$('#top-page').on('mouseleave', () => {
+  $('#move-up').html('&#11014;');
+})
+
+$('#top-page').on('click' , () => {
+  window.scrollTo(0,0);
+})
+
+$(window).on('scroll', function() {
+  if ($(this).scrollTop() < 200) {
+    $('#top-page').css('display', 'none');
+    $('nav').css('display', 'flex');
+  } else {
+    $('#top-page').css('display', 'flex');
+    $('nav').css('display', 'none');
+  }
+});
+
 
 loadTweets();
