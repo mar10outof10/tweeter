@@ -24,3 +24,6 @@ Tweeter is a simple, single-page Twitter clone. Tweeter is built using HTML, CSS
 - Button to close tweet
 - Additional tweaks to layouts between different devices to really make things shine
 - Registration and functionality for logging users in and out
+
+## Known Bugs
+- Tweets start as being written 4 minutes ago (maybe not the case on other computers?)
