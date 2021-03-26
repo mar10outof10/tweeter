@@ -2,7 +2,6 @@ $(document).ready(() => {
   // gets current UNIX time and subtracts it from tweet creation date to return string of how long ago tweet was
   const parseDate = date => {
     const millisecondsAgo = Date.now() - date;
-    console.log(millisecondsAgo);
     // seconds, minutes, hours, days
     if (millisecondsAgo < 60000) {
       if (Math.floor(millisecondsAgo / 1000) === 1) {

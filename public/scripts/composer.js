@@ -21,5 +21,4 @@ $(document).ready(() => {
       $('nav').css('visibility', 'hidden');
     }
   });
-
 });
