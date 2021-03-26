@@ -20,10 +20,18 @@ Tweeter is a simple, single-page Twitter clone. Tweeter is built using HTML, CSS
 - Node 5.10.x or above
 
 ## Stretch/future additions
-
 - Button to close tweet
 - Additional tweaks to layouts between different devices to really make things shine
 - Registration and functionality for logging users in and out
+- Further modularize code, separate functions into separate JS files
+- Organize CSS with SASS
 
 ## Known Bugs
 - Tweets start as being written 4 minutes ago (maybe not the case on other computers?)
+- One long string with no spaces goes out of the bounds of the tweet box, need to implement better text wrapping
+
+## Takeaways for future projects
+- CONSISTENCY CONSISTENCY CONSISTENCY
+- Consistency in HTML ids and classes. When to use IDs vs class, when to reuse clases
+- Consistency in CSS selectors
+- ... consistency?
