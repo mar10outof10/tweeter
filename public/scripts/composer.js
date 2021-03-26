@@ -11,7 +11,7 @@ $(document).ready(() => {
   $('#top-page').on('click' , () => { // top of page on click
     window.scrollTo(0,0);
   });
-  // makes nav bar disappear and button appear when scrolling past designated area. Opposite happens when scrolling back up.
+  // makes nav bar disappear and button appear when scrolling past designated area, opposite happens when scrolling back up.
   $(window).on('scroll', function() {
     if ($(this).scrollTop() < 200) {
       $('#top-page').css('display', 'none');
