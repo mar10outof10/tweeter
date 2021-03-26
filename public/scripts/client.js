@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  // gets current UNIX time and subtracts it from tweet creation date to return string of how long ago tweet was
+  // gets current unix time and subtracts it from tweet creation date to return string of how long ago tweet was
   const parseDate = date => {
     const millisecondsAgo = Date.now() - date;
     // seconds, minutes, hours, days
