@@ -23,12 +23,17 @@ nav {
  }
 
  .write-tweet:hover {
+   cursor: pointer;
    font-weight: bolder;
  }
 
  .write-tweet:hover span {
    display: inline-block;
    animation: spin 3s infinite linear;
+ }
+
+ h2 {
+   color: white;
  }
 
 @keyframes spin {

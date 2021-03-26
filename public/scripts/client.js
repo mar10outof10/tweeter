@@ -6,6 +6,7 @@
 // converts unix time value to amount of time passed since that time
 const parseDate = date => {
   const millisecondsAgo = Date.now() - date;
+  console.log(millisecondsAgo);
   // seconds, minutes, hours, days
   if (millisecondsAgo < 60000) {
     if (Math.floor(millisecondsAgo / 1000) === 1) {

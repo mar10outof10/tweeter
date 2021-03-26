@@ -1,0 +1,9 @@
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  nav {
+    position: static;
+    background-color: #e682dd;
+  }
+  body {
+    padding-top: 0;
+  }
+}
